@@ -60,6 +60,10 @@ def process_csv_files(input_dir, output_file, client_map):
             if not total_fundos_adicionados:
                 total_fundos_adicionados = 0
 
+            # Garantir que os valores sejam formatados com '.' como separador decimal
+            valor_total_cobrado = str(valor_total_cobrado).replace(',', '.')
+            total_fundos_adicionados = str(total_fundos_adicionados).replace(',', '.')
+
             # Adicionar registro
             records.append([client, '[TP]', total_fundos_adicionados, valor_total_cobrado, get_last_day_previous_month()])
 
